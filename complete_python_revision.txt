@@ -1,0 +1,1583 @@
+min_diff = float('inf')  # Initialize to infinity
+
+# ========================== LIST CREATION ==========================  
+list1 = [1, 2, 3, 4, 5]  # List of integers
+list2 = ["apple", "banana", "cherry"]  # List of strings
+list3 = [1, "hello", 3.14, True]  # Mixed data types
+list4 = list((10, 20, 30))  # Create list from tuple
+
+print(list1)
+print(list2)
+print(list3)
+print(list4)
+
+# ========================== ACCESSING ELEMENTS ==========================  
+print(list1[0])  # First element
+print(list1[-1])  # Last element
+print(list1[1:4])  # Slicing (index 1 to 3)
+print(list1[:3])  # First 3 elements
+print(list1[2:])  # From index 2 to end
+print(list1[::-1])  # Reverse list
+
+# ========================== LIST ITERATION ==========================  
+for item in list2:
+    print(item, end=" ")  # Iterate through elements
+print()
+
+# ========================== LIST METHODS ==========================  
+
+# ---------- Modifying Lists ----------  
+list1.append(6)  # Append element at the end
+print(list1)
+
+list1.insert(2, 99)  # Insert at index 2
+print(list1)
+
+list1.extend([7, 8, 9])  # Extend list with another list
+print(list1)
+
+list1[1] = 50  # Update value at index 1
+print(list1)
+
+# ---------- Removing Elements ----------  
+list1.pop()  # Remove last element
+print(list1)
+
+list1.pop(2)  # Remove element at index 2
+print(list1)
+
+list1.remove(50)  # Remove first occurrence of value 50
+print(list1)
+
+del list1[1]  # Delete element at index 1
+print(list1)
+
+list1.clear()  # Remove all elements
+print(list1)
+
+# ---------- Searching & Counting ----------  
+list1 = [1, 2, 3, 3, 4, 5, 3]
+print(list1.index(3))  # Find index of first occurrence of 3
+print(list1.count(3))  # Count occurrences of 3
+
+# ---------- Sorting & Reversing ----------  
+list1.sort()  # Sort list in ascending order
+print(list1)
+
+list1.sort(reverse=True)  # Sort list in descending order
+print(list1)
+
+list1.reverse()  # Reverse list
+print(list1)
+
+# ========================== LIST OPERATIONS ==========================  
+listA = [1, 2, 3]
+listB = [4, 5, 6]
+
+print(listA + listB)  # Concatenation
+print(listA * 3)  # Repeat list 3 times
+
+# ========================== LIST COMPREHENSION ==========================  
+squares = [x ** 2 for x in range(1, 6)]  # Generate squares
+print(squares)
+
+evens = [x for x in range(10) if x % 2 == 0]  # Filter even numbers
+print(evens)
+ 
+# ========================== CHECKING ELEMENT EXISTENCE ==========================  
+print(3 in list1)  # Check if 3 is in list
+print(100 not in list1)  # Check if 100 is not in list
+
+# ========================== COPYING A LIST ==========================  
+listC = listA.copy()  # Copy list
+print(listC)
+
+# ========================== BUILT-IN LIST FUNCTIONS ==========================  
+print(len(list1))  # Get length of list
+print(max(list1))  # Get max value
+print(min(list1))  # Get min value
+print(sum(list1))  # Get sum of elements
+
+# ========================== CONVERTING OTHER TYPES TO LIST ==========================  
+tuple1 = (10, 20, 30)
+set1 = {40, 50, 60}
+string1 = "hello"
+
+print(list(tuple1))  # Convert tuple to list
+print(list(set1))  # Convert set to list
+print(list(string1))  # Convert string to list (each char as item)
+
+# ========================== UNPACKING LIST ELEMENTS ==========================  
+a, b, c = [10, 20, 30]  # Unpack values into variables
+print(a, b, c)
+
+first, *middle, last = [1, 2, 3, 4, 5]
+print(first, middle, last)
+
+# ========================== USING LIST IN FUNCTIONS ==========================  
+def sum_list(lst):
+    return sum(lst)
+
+print(sum_list([1, 2, 3, 4, 5]))
+
+# ========================== NESTED LISTS (2D LISTS) ==========================  
+matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+print(matrix[0])  # First row
+print(matrix[1][2])  # Element at row 1, col 2
+
+# ========================== MAP & FILTER WITH LISTS ==========================  
+numbers = [1, 2, 3, 4, 5]
+doubled = list(map(lambda x: x * 2, numbers))  # Double each number
+print(doubled)
+
+evens = list(filter(lambda x: x % 2 == 0, numbers))  # Filter even numbers
+print(evens)
+
+# ========================== LIST ZIP FUNCTION ==========================  
+names = ["Alice", "Bob", "Charlie"]
+ages = [25, 30, 35]
+
+zipped = list(zip(names, ages))  # Pair elements from two lists
+print(zipped)
+
+# ========================== SPLITTING A LIST INTO CHUNKS ==========================  
+def chunk_list(lst, size):
+    return [lst[i:i + size] for i in range(0, len(lst), size)]
+
+print(chunk_list([1, 2, 3, 4, 5, 6, 7, 8], 3))
+
+# ========================== FLATTENING A NESTED LIST ==========================  
+nested_list = [[1, 2], [3, 4], [5, 6]]
+flat_list = [item for sublist in nested_list for item in sublist]
+print(flat_list)
+
+# ========================== ROTATING A LIST ==========================  
+def rotate(lst, k):
+    return lst[-k:] + lst[:-k]
+
+print(rotate([1, 2, 3, 4, 5], 2))  # Rotate right by 2
+
+# ========================== FINDING COMMON ELEMENTS BETWEEN TWO LISTS ==========================  
+listX = [1, 2, 3, 4, 5]
+listY = [4, 5, 6, 7, 8]
+
+common = list(set(listX) & set(listY))
+print(common)
+
+# ========================== REMOVING DUPLICATES FROM A LIST ==========================  
+unique_list = list(set([1, 2, 2, 3, 3, 4, 5]))
+print(unique_list)
+
+#############################################################################################################
+
+
+# ========================== STRING CREATION ==========================  
+s1 = "Hello, Python!"
+s2 = 'Single quotes also work'
+s3 = """Triple quotes allow multi-line strings"""  
+
+print(s1)
+print(s2)
+print(s3)
+
+# ========================== STRING FUNCTIONS ==========================  
+print(len(s1))  # Get length of string
+print(type(s1))  # Get type of object
+print(str(123))  # Convert number to string
+
+# ========================== STRING METHODS ==========================  
+
+# ---------- Case Changing Methods ----------  
+print(s1.lower())  # Convert to lowercase
+print(s1.upper())  # Convert to uppercase
+print(s1.title())  # Convert to title case
+print(s1.capitalize())  # Capitalize first letter
+print(s1.swapcase())  # Swap uppercase & lowercase  
+
+# ---------- Searching and Finding ----------  
+print(s1.count("o"))  # Count occurrences of 'o'
+print(s1.find("Python"))  # Find index of first occurrence
+print(s1.index("P"))  # Find index of character (raises error if not found)
+print(s1.rfind("o"))  # Find last occurrence index
+print(s1.rindex("o"))  # Find last occurrence index (raises error if not found)  
+
+# ---------- Checking String Properties ----------  
+print(s1.startswith("Hello"))  # Check if string starts with substring
+print(s1.endswith("!"))  # Check if string ends with substring
+print(s1.isalpha())  # Check if all characters are letters
+print(s1.isdigit())  # Check if all characters are digits
+print(s1.isalnum())  # Check if all characters are alphanumeric
+print(s1.isspace())  # Check if string contains only spaces
+print(s1.islower())  # Check if all letters are lowercase
+print(s1.isupper())  # Check if all letters are uppercase
+print(s1.istitle())  # Check if string is title case  
+
+# ---------- String Modification Methods ----------  
+print(s1.strip())  # Remove leading & trailing spaces
+print(s1.lstrip())  # Remove leading spaces
+print(s1.rstrip())  # Remove trailing spaces
+print(s1.replace("Python", "Java"))  # Replace substring
+
+# ---------- Splitting and Joining ----------  
+print(s1.split())  # Split string by spaces
+print(s1.split(","))  # Split using comma as delimiter
+print(s1.rsplit("o"))  # Split from the right side
+print(s1.partition(","))  # Split into three parts (before, separator, after)
+print(s1.rpartition("o"))  # Split from the right side into three parts
+print("-".join(["Hello", "World"]))  # Join list elements into a string  
+
+# ---------- String Alignment ----------  
+print(s1.center(30, "*"))  # Center align with padding
+print(s1.ljust(30, "-"))  # Left align with padding
+print(s1.rjust(30, "-"))  # Right align with padding
+print(s1.zfill(30))  # Pad with leading zeros  
+
+# ---------- Encoding and Decoding ----------  
+encoded_s1 = s1.encode("utf-8")  # Encode string to bytes
+print(encoded_s1)
+decoded_s1 = encoded_s1.decode("utf-8")  # Decode bytes to string
+print(decoded_s1)
+
+# ========================== STRING FORMATTING ==========================  
+
+# ---------- Old Formatting ( % Operator ) ----------  
+name = "Alice"
+age = 25
+print("My name is %s and I am %d years old." % (name, age))
+
+# ---------- New Formatting ( format() method ) ----------  
+print("My name is {} and I am {} years old.".format(name, age))
+print("My name is {0} and I am {1} years old.".format(name, age))  # Positional arguments
+print("My name is {name} and I am {age} years old.".format(name="Bob", age=30))  # Named placeholders  
+
+# ---------- f-Strings (Python 3.6+) ----------  
+print(f"My name is {name} and I am {age} years old.")  
+
+# ========================== ESCAPE SEQUENCES ==========================  
+print("Hello\nWorld")  # Newline
+print("Hello\tWorld")  # Tab
+print("Hello\\World")  # Backslash
+print("Hello \"World\"")  # Double quote inside string
+print('Hello \'World\'')  # Single quote inside string
+print("Hello\bWorld")  # Backspace  
+
+# ========================== STRING ITERATION ==========================  
+for char in s1:
+    print(char, end=" ")  # Iterate through each character
+print()
+
+# ========================== STRING COMPARISON ==========================  
+print("apple" == "banana")  # Equality check
+print("apple" != "banana")  # Inequality check
+print("apple" < "banana")  # Lexicographic comparison
+print("apple" > "banana")  # Lexicographic comparison  
+
+# ========================== STRING CONCATENATION & REPETITION ==========================  
+s4 = "Hello" + " " + "World"  # Concatenation
+print(s4)
+
+s5 = "Python " * 3  # Repeat string 3 times
+print(s5)
+
+# ========================== STRING SLICING ==========================  
+s6 = "PythonProgramming"
+
+print(s6[0])  # First character
+print(s6[-1])  # Last character
+print(s6[0:6])  # Substring (0 to 5)
+print(s6[:6])  # First 6 characters
+print(s6[6:])  # From index 6 to end
+print(s6[::2])  # Step slicing (every 2nd character)
+print(s6[::-1])  # Reverse the string  
+
+# ========================== STRING METHODS THAT RETURN BOOLEAN VALUES ==========================  
+print(s1.isidentifier())  # Check if valid identifier
+print(s1.isprintable())  # Check if all characters are printable  
+
+# ========================== STRING BYTE OPERATIONS ==========================  
+byte_str = b"Hello"  # Byte string
+print(byte_str)
+print(byte_str.decode())  # Decode to string
+
+# ========================== UNICODE & ASCII OPERATIONS ==========================  
+print(ord("A"))  # Get ASCII value
+print(chr(65))  # Get character from ASCII value  
+
+# ========================== CHECKING CHARACTER EXISTENCE ==========================  
+print("P" in s1)  # Check if character exists in string
+print("Python" not in s1)  # Check if substring does not exist  
+
+# ========================== USING MAP & FILTER WITH STRINGS ==========================  
+s7 = "hello123"
+print("".join(filter(str.isalpha, s7)))  # Remove digits from string
+print("".join(map(str.upper, s7)))  # Convert all letters to uppercase  
+
+#############################################################################################################
+
+
+# ========================== TUPLE CREATION ==========================  
+tuple1 = (1, 2, 3, 4, 5)  # Tuple of integers
+tuple2 = ("apple", "banana", "cherry")  # Tuple of strings
+tuple3 = (1, "hello", 3.14, True)  # Mixed data types
+tuple4 = tuple([10, 20, 30])  # Convert list to tuple
+tuple5 = (50,)  # Single-element tuple (comma needed!)
+
+print(tuple1)
+print(tuple2)
+print(tuple3)
+print(tuple4)
+print(tuple5)
+
+# ========================== ACCESSING ELEMENTS ==========================  
+print(tuple1[0])  # First element
+print(tuple1[-1])  # Last element
+print(tuple1[1:4])  # Slicing (index 1 to 3)
+print(tuple1[:3])  # First 3 elements
+print(tuple1[2:])  # From index 2 to end
+print(tuple1[::-1])  # Reverse tuple
+
+# ========================== TUPLE ITERATION ==========================  
+for item in tuple2:
+    print(item, end=" ")  # Iterate through elements
+print()
+
+# ========================== TUPLE METHODS ==========================  
+
+# ---------- Counting & Searching ----------  
+tuple6 = (1, 2, 3, 3, 4, 5, 3)
+print(tuple6.count(3))  # Count occurrences of 3
+print(tuple6.index(3))  # Find index of first occurrence of 3
+
+# ========================== TUPLE OPERATIONS ==========================  
+tupleA = (1, 2, 3)
+tupleB = (4, 5, 6)
+
+print(tupleA + tupleB)  # Concatenation
+print(tupleA * 3)  # Repeat tuple 3 times
+
+# ========================== CHECKING ELEMENT EXISTENCE ==========================  
+print(3 in tuple1)  # Check if 3 is in tuple
+print(100 not in tuple1)  # Check if 100 is not in tuple
+
+# ========================== BUILT-IN TUPLE FUNCTIONS ==========================  
+print(len(tuple1))  # Get length of tuple
+print(max(tuple1))  # Get max value (for numeric tuples)
+print(min(tuple1))  # Get min value
+print(sum(tuple1))  # Get sum of elements (for numeric tuples)
+
+# ========================== CONVERTING OTHER TYPES TO TUPLE ==========================  
+list1 = [10, 20, 30]
+set1 = {40, 50, 60}
+string1 = "hello"
+
+print(tuple(list1))  # Convert list to tuple
+print(tuple(set1))  # Convert set to tuple
+print(tuple(string1))  # Convert string to tuple (each char as item)
+
+# ========================== UNPACKING TUPLE ELEMENTS ==========================  
+a, b, c = (10, 20, 30)  # Unpack values into variables
+print(a, b, c)
+
+first, *middle, last = (1, 2, 3, 4, 5)
+print(first, middle, last)
+
+# ========================== USING TUPLE IN FUNCTIONS ==========================  
+def sum_tuple(tpl):
+    return sum(tpl)
+
+print(sum_tuple((1, 2, 3, 4, 5)))
+
+# ========================== NESTED TUPLES (2D TUPLES) ==========================  
+nested_tuple = ((1, 2, 3), (4, 5, 6), (7, 8, 9))
+print(nested_tuple[0])  # First row
+print(nested_tuple[1][2])  # Element at row 1, col 2
+
+# ========================== TUPLE ZIP FUNCTION ==========================  
+names = ("Alice", "Bob", "Charlie")
+ages = (25, 30, 35)
+
+zipped = tuple(zip(names, ages))  # Pair elements from two tuples
+print(zipped)
+
+# ========================== TUPLE COMPREHENSION (GENERATOR EXPRESSIONS) ==========================  
+squares = tuple(x ** 2 for x in range(1, 6))  # Generate squares
+print(squares)
+
+evens = tuple(x for x in range(10) if x % 2 == 0)  # Filter even numbers
+print(evens)
+
+# ========================== CONVERTING LIST TO TUPLE AND VICE VERSA ==========================  
+tuple_to_list = list(tuple1)  # Convert tuple to list
+list_to_tuple = tuple(list1)  # Convert list to tuple
+print(tuple_to_list)
+print(list_to_tuple)
+
+# ========================== FINDING COMMON ELEMENTS BETWEEN TWO TUPLES ==========================  
+tupleX = (1, 2, 3, 4, 5)
+tupleY = (4, 5, 6, 7, 8)
+
+common = tuple(set(tupleX) & set(tupleY))
+print(common)
+
+# ========================== CHECKING IF A TUPLE IS EMPTY ==========================  
+empty_tuple = ()
+print(len(empty_tuple) == 0)  # Check if empty
+
+# ========================== SPLITTING A TUPLE INTO CHUNKS ==========================  
+def chunk_tuple(tpl, size):
+    return tuple(tpl[i:i + size] for i in range(0, len(tpl), size))
+
+print(chunk_tuple((1, 2, 3, 4, 5, 6, 7, 8), 3))
+
+# ========================== FLATTENING A NESTED TUPLE ==========================  
+nested_tuple = ((1, 2), (3, 4), (5, 6))
+flat_tuple = tuple(item for subtuple in nested_tuple for item in subtuple)
+print(flat_tuple)
+
+# ========================== ROTATING A TUPLE ==========================  
+def rotate_tuple(tpl, k):
+    return tpl[-k:] + tpl[:-k]
+
+print(rotate_tuple((1, 2, 3, 4, 5), 2))  # Rotate right by 2
+
+##########################################################################################################################
+
+# ========================== SET CREATION ==========================  
+set1 = {1, 2, 3, 4, 5}  # Standard set
+set2 = {"apple", "banana", "cherry"}  # Set of strings
+set3 = set([10, 20, 30])  # Convert list to set
+set4 = set()  # Empty set (note: {} creates an empty dictionary)
+
+print(set1)
+print(set2)
+print(set3)
+print(set4)
+
+# ========================== ADDING ELEMENTS ==========================  
+set1.add(6)  # Add a single element
+print(set1)
+
+set1.update([7, 8, 9])  # Add multiple elements
+print(set1)
+
+# ========================== REMOVING ELEMENTS ==========================  
+set1.remove(3)  # Remove an element (raises KeyError if not found)
+print(set1)
+
+set1.discard(10)  # Remove element if exists (no error if missing)
+print(set1)
+
+popped_value = set1.pop()  # Remove and return an arbitrary element
+print(popped_value)
+print(set1)
+
+set1.clear()  # Remove all elements
+print(set1)
+
+# ========================== SET OPERATIONS ==========================  
+setA = {1, 2, 3, 4, 5}
+setB = {4, 5, 6, 7, 8}
+
+print(setA | setB)  # Union (Combine elements from both sets)
+print(setA & setB)  # Intersection (Common elements)
+print(setA - setB)  # Difference (Elements in setA but not in setB)
+print(setB - setA)  # Difference (Elements in setB but not in setA)
+print(setA ^ setB)  # Symmetric Difference (Elements in either set, but not both)
+
+# ========================== IN-PLACE SET OPERATIONS ==========================  
+setA |= setB  # In-place Union
+print(setA)
+
+setA &= setB  # In-place Intersection
+print(setA)
+
+setA -= setB  # In-place Difference
+print(setA)
+
+setA ^= setB  # In-place Symmetric Difference
+print(setA)
+
+# ========================== CHECKING ELEMENT EXISTENCE ==========================  
+setC = {10, 20, 30, 40}
+print(10 in setC)  # Check if element exists
+print(50 not in setC)  # Check if element does not exist
+
+# ========================== SET METHODS ==========================  
+
+# ---------- Copying ----------  
+setD = setC.copy()  # Copy set
+print(setD)
+
+# ---------- Finding Subset & Superset ----------  
+setX = {1, 2}
+setY = {1, 2, 3, 4}
+
+print(setX.issubset(setY))  # Check if setX is a subset of setY
+print(setY.issuperset(setX))  # Check if setY is a superset of setX
+
+# ---------- Checking Disjoint Sets ----------  
+setM = {1, 2, 3}
+setN = {4, 5, 6}
+
+print(setM.isdisjoint(setN))  # Check if sets have no common elements
+
+# ========================== SET BUILT-IN FUNCTIONS ==========================  
+setE = {5, 10, 15, 20, 25}
+
+print(len(setE))  # Get set size
+print(max(setE))  # Get max value
+print(min(setE))  # Get min value
+print(sum(setE))  # Sum of all elements
+
+# ========================== CONVERTING BETWEEN DATA TYPES ==========================  
+list1 = [1, 2, 2, 3, 4, 4, 5]
+tuple1 = (6, 7, 7, 8, 9)
+
+print(set(list1))  # Convert list to set (removes duplicates)
+print(set(tuple1))  # Convert tuple to set
+
+# ========================== ITERATING THROUGH SETS ==========================  
+setF = {"Python", "Java", "C++"}
+
+for item in setF:
+    print(item)  # Loop through elements
+
+# ========================== FROZEN SET (IMMUTABLE SET) ==========================  
+frozen_set1 = frozenset([1, 2, 3, 4])
+print(frozen_set1)
+
+# frozen_set1.add(5)  # ❌ This will cause an error (frozen sets are immutable)
+
+# ========================== FILTERING A SET ==========================  
+original_set = {1, 2, 3, 4, 5, 6, 7, 8, 9}
+filtered_set = {x for x in original_set if x % 2 == 0}  # Keep only even numbers
+print(filtered_set)
+
+# ========================== FINDING COMMON ELEMENTS BETWEEN MULTIPLE SETS ==========================  
+set1 = {1, 2, 3, 4}
+set2 = {3, 4, 5, 6}
+set3 = {4, 5, 6, 7}
+
+common_elements = set1 & set2 & set3  # Find common elements in all sets
+print(common_elements)
+
+# ========================== MERGING MULTIPLE SETS ==========================  
+merged_set = set1.union(set2, set3)
+print(merged_set)
+
+# ========================== CHECKING IF A SET IS EMPTY ==========================  
+empty_set = set()
+print(len(empty_set) == 0)  # Check if empty
+print(bool(empty_set))  # False if empty, True otherwise
+
+#################################################################################################################
+
+# ========================== DICTIONARY CREATION ==========================  
+dict1 = {"name": "Alice", "age": 25, "city": "New York"}  # Standard dictionary
+dict2 = dict(name="Bob", age=30, city="Los Angeles")  # Using dict() constructor
+dict3 = {1: "one", 2: "two", 3: "three"}  # Integer keys
+dict4 = {}  # Empty dictionary
+dict5 = dict([(1, "one"), (2, "two")])  # From list of tuples
+
+print(dict1)
+print(dict2)
+print(dict3)
+print(dict4)
+print(dict5)
+
+# ========================== ACCESSING ELEMENTS ==========================  
+print(dict1["name"])  # Access value using key
+print(dict1.get("age"))  # Access value using get() (returns None if key is missing)
+print(dict1.get("salary", "Not Available"))  # Get with default value
+
+# ========================== MODIFYING DICTIONARY ==========================  
+dict1["age"] = 26  # Update existing key
+dict1["country"] = "USA"  # Add new key-value pair
+print(dict1)
+
+# ========================== DELETING ELEMENTS ==========================  
+del dict1["city"]  # Delete specific key
+print(dict1)
+
+dict1.pop("country")  # Remove key and return its value
+print(dict1)
+
+dict1.popitem()  # Remove last key-value pair
+print(dict1)
+
+dict1.clear()  # Remove all elements
+print(dict1)
+
+# ========================== DICTIONARY METHODS ==========================  
+
+# ---------- Adding & Updating ----------  
+dict1 = {"name": "Alice", "age": 25}
+dict1.update({"city": "New York", "age": 26})  # Update multiple keys
+print(dict1)
+
+# ---------- Copying Dictionary ----------  
+dict2 = dict1.copy()  # Shallow copy
+print(dict2)
+
+# ---------- Keys, Values & Items ----------  
+print(dict1.keys())  # Get all keys
+print(dict1.values())  # Get all values
+print(dict1.items())  # Get all key-value pairs
+
+# ========================== CHECKING ELEMENT EXISTENCE ==========================  
+print("name" in dict1)  # Check if key exists
+print("salary" not in dict1)  # Check if key does not exist
+
+# ========================== ITERATING THROUGH DICTIONARY ==========================  
+for key in dict1:
+    print(key, dict1[key])  # Loop through keys and values
+
+for key, value in dict1.items():
+    print(f"{key}: {value}")  # Loop using items()
+
+# ========================== BUILT-IN DICTIONARY FUNCTIONS ==========================  
+print(len(dict1))  # Get dictionary size
+
+# ========================== DEFAULT DICTIONARY VALUES ==========================  
+from collections import defaultdict
+ddict = defaultdict(int)  # Default value of int (0)
+ddict["a"] += 1  # Increments without KeyError
+print(ddict)
+
+# ========================== MERGING DICTIONARIES (Python 3.9+) ==========================  
+dictA = {"a": 1, "b": 2}
+dictB = {"b": 3, "c": 4}
+
+merged_dict = dictA | dictB  # Merges dictionaries (Python 3.9+)
+print(merged_dict)
+
+# ========================== DICTIONARY COMPREHENSION ==========================  
+squared = {x: x ** 2 for x in range(1, 6)}  # Create dict with squares
+print(squared)
+
+# ========================== CONVERTING BETWEEN DATA TYPES ==========================  
+list_of_tuples = [("name", "Alice"), ("age", 25)]
+dict_from_tuples = dict(list_of_tuples)  # Convert list of tuples to dict
+print(dict_from_tuples)
+
+keys = ["name", "age", "city"]
+default_value = "Unknown"
+dict_from_keys = dict.fromkeys(keys, default_value)  # Create dict with default values
+print(dict_from_keys)
+
+# ========================== NESTED DICTIONARIES ==========================  
+nested_dict = {
+    "person1": {"name": "Alice", "age": 25},
+    "person2": {"name": "Bob", "age": 30}
+}
+print(nested_dict["person1"]["name"])  # Access nested value
+
+# ========================== SORTING A DICTIONARY ==========================  
+unsorted_dict = {"b": 2, "c": 3, "a": 1}
+sorted_by_key = dict(sorted(unsorted_dict.items()))  # Sort by key
+print(sorted_by_key)
+
+sorted_by_value = dict(sorted(unsorted_dict.items(), key=lambda item: item[1]))  # Sort by value
+print(sorted_by_value)
+
+# ========================== FILTERING A DICTIONARY ==========================  
+original_dict = {"a": 10, "b": 20, "c": 5, "d": 30}
+filtered_dict = {k: v for k, v in original_dict.items() if v > 10}
+print(filtered_dict)
+
+# ========================== FINDING MAX, MIN, SUM ==========================  
+num_dict = {"a": 10, "b": 20, "c": 5}
+print(max(num_dict, key=num_dict.get))  # Key with max value
+print(min(num_dict, key=num_dict.get))  # Key with min value
+print(sum(num_dict.values()))  # Sum of values
+
+# ========================== INVERTING A DICTIONARY (KEYS ↔ VALUES) ==========================  
+inverted_dict = {v: k for k, v in num_dict.items()}
+print(inverted_dict)
+
+# ========================== USING DICTIONARY IN FUNCTIONS ==========================  
+def print_dict(d):
+    for k, v in d.items():
+        print(f"{k}: {v}")
+
+print_dict({"name": "Alice", "age": 25})
+
+# ========================== CHECKING IF DICTIONARY IS EMPTY ==========================  
+empty_dict = {}
+print(len(empty_dict) == 0)  # Check if empty
+print(bool(empty_dict))  # False if empty, True otherwise
+
+#######################################################################################################################
+
+
+# ========================== CLASSES & OBJECTS IN PYTHON ==========================
+
+# ========================== BASIC CLASS & OBJECT ==========================
+
+class Person:
+    """A simple class example"""
+    def __init__(self, name, age):
+        """Constructor to initialize attributes"""
+        self.name = name
+        self.age = age
+
+    def greet(self):
+        """Method to print a greeting"""
+        print(f"Hello, my name is {self.name} and I am {self.age} years old.")
+
+# Creating an object
+p1 = Person("Alice", 25)
+p1.greet()
+
+# ========================== CLASS ATTRIBUTES VS INSTANCE ATTRIBUTES ==========================
+
+class Employee:
+    company = "TechCorp"  # Class attribute (shared across all instances)
+
+    def __init__(self, name, salary):
+        self.name = name  # Instance attribute (unique to each object)
+        self.salary = salary
+
+# Creating objects
+e1 = Employee("Bob", 50000)
+e2 = Employee("Charlie", 60000)
+
+print(e1.name, e1.salary, e1.company)
+print(e2.name, e2.salary, e2.company)
+
+# Modifying class attribute
+Employee.company = "NewTechCorp"
+print(e1.company)  # Affected for all instances
+
+# ========================== CLASS METHOD & STATIC METHOD ==========================
+
+class MathOperations:
+    """Class demonstrating class and static methods"""
+    
+    @classmethod
+    def class_method_example(cls):
+        print("This is a class method. Can access class attributes.")
+
+    @staticmethod
+    def static_method_example():
+        print("This is a static method. No access to class or instance attributes.")
+
+MathOperations.class_method_example()
+MathOperations.static_method_example()
+
+# ========================== INHERITANCE ==========================
+
+class Animal:
+    def speak(self):
+        return "Animal sound"
+
+class Dog(Animal):  # Dog inherits from Animal
+    def speak(self):
+        return "Bark"
+
+d = Dog()
+print("Dog says:", d.speak())
+
+# ========================== METHOD OVERRIDING ==========================
+
+class Parent:
+    def show(self):
+        print("Parent class method")
+
+class Child(Parent):
+    def show(self):
+        print("Child class method (overridden)")
+
+c = Child()
+c.show()  # Calls the overridden method
+
+# ========================== MULTIPLE INHERITANCE ==========================
+
+class A:
+    def method_a(self):
+        return "Method from class A"
+
+class B:
+    def method_b(self):
+        return "Method from class B"
+
+class C(A, B):  # Multiple Inheritance
+    def method_c(self):
+        return "Method from class C"
+
+obj = C()
+print(obj.method_a(), obj.method_b(), obj.method_c())
+
+# ========================== ENCAPSULATION (PRIVATE & PROTECTED MEMBERS) ==========================
+
+class BankAccount:
+    def __init__(self, balance):
+        self.__balance = balance  # Private attribute (cannot be accessed directly)
+
+    def deposit(self, amount):
+        self.__balance += amount
+
+    def get_balance(self):
+        return self.__balance
+
+account = BankAccount(1000)
+account.deposit(500)
+print("Balance:", account.get_balance())
+
+# print(account.__balance)  # This would raise an AttributeError (private variable)
+
+# ========================== POLYMORPHISM ==========================
+
+class Cat:
+    def speak(self):
+        return "Meow"
+
+animals = [Dog(), Cat()]
+
+for animal in animals:
+    print(animal.speak())  # Polymorphism: different implementations of `speak()`
+
+# ========================== ABSTRACT CLASSES & INTERFACES ==========================
+
+from abc import ABC, abstractmethod
+
+class Vehicle(ABC):
+    @abstractmethod
+    def start(self):
+        pass
+
+class Car(Vehicle):
+    def start(self):
+        print("Car engine started.")
+
+car = Car()
+car.start()
+
+# ========================== OPERATOR OVERLOADING ==========================
+
+class Point:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def __add__(self, other):
+        """Overloading + operator"""
+        return Point(self.x + other.x, self.y + other.y)
+
+p1 = Point(1, 2)
+p2 = Point(3, 4)
+p3 = p1 + p2  # Uses __add__
+print(f"Point coordinates: ({p3.x}, {p3.y})")
+
+# ========================== DESTRUCTOR METHOD ==========================
+
+class Sample:
+    def __init__(self, name):
+        self.name = name
+        print(f"Object {self.name} created.")
+
+    def __del__(self):
+        print(f"Object {self.name} destroyed.")
+
+obj = Sample("TestObj")
+del obj  # Manually invoking the destructor
+
+# ========================== PROPERTY DECORATOR (GETTERS & SETTERS) ==========================
+
+class Product:
+    def __init__(self, price):
+        self._price = price
+
+    @property
+    def price(self):
+        return self._price
+
+    @price.setter
+    def price(self, value):
+        if value < 0:
+            raise ValueError("Price cannot be negative!")
+        self._price = value
+
+product = Product(100)
+print("Product price:", product.price)
+product.price = 150
+print("Updated price:", product.price)
+
+# ========================== METACLASSES (ADVANCED TOPIC) ==========================
+
+class Meta(type):
+    def __new__(cls, name, bases, dct):
+        print(f"Creating class {name}")
+        return super().__new__(cls, name, bases, dct)
+
+class CustomClass(metaclass=Meta):
+    pass
+
+# ========================== END ==========================
+
+###########################################################################################################
+
+# ========================== NUMERIC TYPES ==========================  
+a = 10           # Integer
+b = 10.5        # Float
+c = 3 + 4j      # Complex Number
+
+print(type(a))  # Check type
+print(type(b))
+print(type(c))
+
+# ========================== BASIC ARITHMETIC OPERATIONS ==========================  
+print(a + b)  # Addition
+print(a - b)  # Subtraction
+print(a * b)  # Multiplication
+print(a / b)  # Division (returns float)
+print(a // b)  # Floor division (integer division)
+print(a % b)  # Modulus (remainder)
+print(a ** 2)  # Exponentiation (Power)
+
+# ========================== BUILT-IN NUMERIC FUNCTIONS ==========================  
+print(abs(-10))  # Absolute value
+print(pow(2, 3))  # Exponentiation (2^3)
+print(round(10.678, 2))  # Round to 2 decimal places
+print(divmod(10, 3))  # Returns (quotient, remainder)
+
+# ========================== MIN, MAX, SUM ==========================  
+nums = [1, 5, 3, 9, 2]
+print(min(nums))  # Minimum value
+print(max(nums))  # Maximum value
+print(sum(nums))  # Sum of elements
+
+# ========================== TYPE CONVERSIONS ==========================  
+print(int(10.9))  # Convert float to int
+print(float(10))  # Convert int to float
+print(complex(2))  # Convert int to complex
+print(complex(2, 3))  # Create complex number
+
+# ========================== MATH MODULE FUNCTIONS ==========================  
+import math
+
+print(math.sqrt(16))  # Square root
+print(math.factorial(5))  # Factorial (5!)
+print(math.gcd(48, 18))  # Greatest common divisor
+print(math.lcm(48, 18))  # Least common multiple (Python 3.9+)
+print(math.fabs(-10.5))  # Absolute value (float)
+print(math.exp(2))  # e^x (Exponential function)
+print(math.log(10))  # Natural log (ln(x))
+print(math.log10(100))  # Log base 10
+print(math.log2(8))  # Log base 2
+print(math.ceil(4.2))  # Round up
+print(math.floor(4.9))  # Round down
+print(math.trunc(4.9))  # Truncate (remove decimal part)
+print(math.copysign(10, -1))  # Copy sign from another number
+print(math.isfinite(10))  # Check if number is finite
+print(math.isinf(float('inf')))  # Check if number is infinite
+print(math.isnan(float('nan')))  # Check if number is NaN (Not-a-Number)
+
+# ========================== TRIGONOMETRIC FUNCTIONS ==========================  
+print(math.sin(math.radians(30)))  # Sine of 30 degrees
+print(math.cos(math.radians(60)))  # Cosine of 60 degrees
+print(math.tan(math.radians(45)))  # Tangent of 45 degrees
+print(math.asin(0.5))  # Inverse Sine
+print(math.acos(0.5))  # Inverse Cosine
+print(math.atan(1))  # Inverse Tangent
+print(math.degrees(math.pi))  # Convert radians to degrees
+print(math.radians(180))  # Convert degrees to radians
+
+# ========================== RANDOM MODULE FUNCTIONS ==========================  
+import random
+
+print(random.randint(1, 10))  # Random integer between 1 and 10
+print(random.uniform(1, 10))  # Random float between 1 and 10
+print(random.random())  # Random float between 0 and 1
+print(random.choice([1, 2, 3, 4, 5]))  # Random choice from list
+print(random.sample(range(1, 10), 3))  # Get 3 unique random numbers
+random.shuffle(nums)  # Shuffle list randomly
+print(nums)
+
+# ========================== DECIMAL MODULE (For Precision Arithmetic) ==========================  
+from decimal import Decimal, getcontext
+
+getcontext().prec = 5  # Set precision to 5 digits
+d1 = Decimal("10.12345")
+d2 = Decimal("3.6789")
+print(d1 + d2)  # Precise decimal addition
+
+# ========================== FRACTIONS MODULE ==========================  
+from fractions import Fraction
+
+f1 = Fraction(1, 3)  # Create fraction 1/3
+f2 = Fraction(3, 4)  # Create fraction 3/4
+print(f1 + f2)  # Fraction addition
+print(float(f1))  # Convert fraction to float
+print(f1.limit_denominator(10))  # Simplify fraction
+
+# ========================== COMPLEX NUMBER OPERATIONS ==========================  
+c1 = complex(3, 4)
+c2 = complex(1, -2)
+
+print(c1 + c2)  # Complex addition
+print(c1 - c2)  # Complex subtraction
+print(c1 * c2)  # Complex multiplication
+print(c1 / c2)  # Complex division
+
+print(c1.real)  # Get real part
+print(c1.imag)  # Get imaginary part
+print(abs(c1))  # Get magnitude
+print(c1.conjugate())  # Get complex conjugate
+
+# ========================== BITWISE OPERATIONS (Only for Integers) ==========================  
+x = 5  # Binary: 101
+y = 3  # Binary: 011
+
+print(x & y)  # AND operation (001 -> 1)
+print(x | y)  # OR operation (111 -> 7)
+print(x ^ y)  # XOR operation (110 -> 6)
+print(~x)  # NOT operation (Two's complement)
+print(x << 1)  # Left shift (1010 -> 10)
+print(x >> 1)  # Right shift (10 -> 2)
+
+# ========================== NUMBER REPRESENTATION FUNCTIONS ==========================  
+print(bin(10))  # Convert to binary (0b1010)
+print(oct(10))  # Convert to octal (0o12)
+print(hex(10))  # Convert to hexadecimal (0xa)
+
+# ========================== CHECKING NUMBER PROPERTIES ==========================  
+print(isinstance(10, int))  # Check if int
+print(isinstance(10.5, float))  # Check if float
+print(isinstance(3 + 4j, complex))  # Check if complex
+
+# ========================== FLOAT SPECIAL CASES ==========================  
+print(float('inf'))  # Positive Infinity
+print(float('-inf'))  # Negative Infinity
+print(float('nan'))  # Not-a-Number (NaN)
+
+# ========================== USING MAP & FILTER WITH NUMBERS ==========================  
+nums = [1, 2, 3, 4, 5]
+print(list(map(lambda x: x * 2, nums)))  # Double each number
+print(list(filter(lambda x: x % 2 == 0, nums)))  # Filter even numbers
+
+# ========================== BUILT-IN FUNCTIONS ==========================
+
+# Numeric Conversions
+print(abs(-10))  # Returns the absolute value of a number
+print(bin(10))  # Convert to binary
+print(oct(10))  # Convert to octal
+print(hex(10))  # Convert to hexadecimal
+
+# Character and ASCII Functions
+print(ord('A'))  # Get ASCII value of character
+print(chr(65))  # Get character from ASCII value
+
+# Boolean Functions
+print(bool(0))  # Convert to boolean
+print(any([False, 0, "Python"]))  # Check if any element is True
+print(all([True, 1, "Python"]))  # Check if all elements are True
+
+# Debugging and Code Execution
+breakpoint()  # Enters the debugger at this location
+code = "print('Hello from eval!')"
+exec(code)  # Executes a string as Python code
+print(eval("5 + 10"))  # Evaluates an expression from a string
+
+# Byte and Memory Operations
+print(bytearray("hello", "utf-8"))  # Returns a mutable sequence of bytes
+print(bytes("hello", "utf-8"))  # Returns an immutable sequence of bytes
+print(memoryview(b"hello"))  # Creates a memory view object
+
+# Object Type and Attributes
+class Example:
+    x = 10
+
+e = Example()
+print(hasattr(e, 'x'))  # Check if object has an attribute
+setattr(e, 'y', 20)  # Set an attribute
+print(getattr(e, 'y'))  # Retrieve an attribute
+delattr(e, 'y')  # Delete an attribute
+
+# Type Checking and Conversion
+print(type(10))  # Get type of variable
+print(isinstance(10, int))  # Check if object is an instance of a class
+print(issubclass(Example, object))  # Check if class is a subclass of another
+
+# Sequence Operations
+print(len([1, 2, 3]))  # Returns the length of an object
+print(list(range(1, 10, 2)))  # Generate list using range
+print(sorted([3, 1, 4, 2]))  # Returns a sorted list
+print(reversed([1, 2, 3]))  # Returns a reversed iterator
+print(slice(1, 5, 2))  # Create a slice object
+
+# Iteration Functions
+iterable = iter([1, 2, 3])
+print(next(iterable))  # Retrieve next item from iterator
+print(list(enumerate(["apple", "banana", "cherry"])))  # Create enumeration object
+print(list(map(str.upper, ["hello", "world"])))  # Apply function to all elements
+print(list(filter(lambda x: x > 2, [1, 2, 3, 4])))  # Filter elements
+
+# Mathematical Functions
+print(pow(2, 3))  # Compute exponentiation (2^3)
+print(divmod(10, 3))  # Get quotient and remainder
+print(sum([1, 2, 3, 4]))  # Sum of list elements
+print(min(3, 1, 4, 2))  # Get minimum value
+print(max(3, 1, 4, 2))  # Get maximum value
+print(round(3.14159, 2))  # Round number to 2 decimal places
+
+# String and Formatting Functions
+print(format(1000, ","))  # Format a number with a thousands separator
+print(repr("Hello"))  # Get string representation
+print(str(123))  # Convert to string
+
+# File Handling (Commented Out)
+# with open("test.txt", "w") as f:
+#     f.write("Hello, File!")
+
+# Input and Output
+# user_input = input("Enter something: ")  # Reads user input
+print(print("Hello, world!"))  # Outputs values to the console
+
+# Global and Local Variables
+print(globals())  # Returns the global symbol table
+print(locals())  # Returns the local symbol table
+
+# Help and Documentation
+print(dir(str))  # List attributes and methods of an object
+# print(help(int))  # Show documentation (Uncomment to use)
+
+# Exception Handling
+try:
+    eval("5 + ")  # Evaluate invalid expression
+except SyntaxError as e:
+    print("Syntax Error:", e)
+
+# Object and Class Functions
+class MyClass:
+    def method(self):
+        return "Hello!"
+
+obj = MyClass()
+print(isinstance(obj, MyClass))  # Check if object is instance of class
+print(issubclass(MyClass, object))  # Check if class is subclass of another
+
+# Zip Function
+names = ["Alice", "Bob", "Charlie"]
+ages = [25, 30, 35]
+print(list(zip(names, ages)))  # Combines lists
+
+# Built-in Exception Classes
+try:
+    raise KeyboardInterrupt()
+except KeyboardInterrupt:
+    print("KeyboardInterrupt exception caught!")
+
+try:
+    raise SystemExit()
+except SystemExit:
+    print("SystemExit exception caught!")
+
+# ========================== END ==========================
+
+==================================================pandas=====================================
+# Pandas Complete Method Reference with Usage Guide
+
+This guide provides a comprehensive list of all important pandas methods, along with one-line descriptions and usage guidance.
+
+---
+
+## 📂 Core Data Structures
+
+### Series
+
+- **`pd.Series(data)`**: Create a one-dimensional labeled array.
+
+### DataFrame
+
+- **`pd.DataFrame(data)`**: Create a two-dimensional labeled data structure.
+
+---
+
+## 📀 Input/Output
+
+### Reading Data
+
+- **`read_csv(filepath)`**: Read CSV file into a DataFrame.
+- **`read_excel(filepath)`**: Read Excel file.
+- **`read_json(filepath)`**: Load JSON as DataFrame.
+- **`read_html(url)`**: Read HTML tables.
+- **`read_sql(query, conn)`**: Run SQL query and return DataFrame.
+- **`read_clipboard()`**: Read from clipboard.
+- **`read_parquet(filepath)`**, **`read_feather()`**, **`read_stata()`**, etc.: Read specific formats.
+
+### Writing Data
+
+- **`to_csv(filepath)`**: Save DataFrame as CSV.
+- **`to_excel(filepath)`**: Save as Excel file.
+- **`to_json()`**: Convert to JSON.
+- **`to_html()`**: Render as HTML table.
+- **`to_sql(name, conn)`**: Save to SQL database.
+
+---
+
+## 🔍 Selecting and Filtering Data
+
+- **`loc[]`**: Label-based selection.
+- **`iloc[]`**: Index-based selection.
+- **`at[]`**, **`iat[]`**: Fast scalar access.
+- **`query("expression")`**: Query with a string.
+- **`filter()`**: Filter by labels.
+
+---
+
+## 🔄 Data Modification
+
+- **`assign(col=value)`**: Add new column.
+- **`drop(labels)`**: Drop rows or columns.
+- **`rename(columns={})`**: Rename columns or index.
+- **`set_index(keys)`**: Set index.
+- **`reset_index()`**: Reset index.
+- **`insert(loc, column, value)`**: Insert column at specific position.
+- **`update(df2)`**: Update with values from another DataFrame.
+- **`replace(to_replace, value)`**: Replace values.
+- **`where(cond)`**: Replace where condition is False.
+- **`clip(lower, upper)`**: Limit values.
+
+---
+
+## 🔢 Data Inspection & Cleaning
+
+- **`head(n)`**, **`tail(n)`**: View top/bottom rows.
+- **`info()`**: Print summary.
+- **`describe()`**: Summary stats.
+- **`shape`**, **`dtypes`**, **`ndim`**: Get shape, data types, dimensions.
+- **`isnull()`**, **`notnull()`**: Check for missing data.
+- **`dropna()`**, **`fillna(value)`**: Handle nulls.
+- **`duplicated()`**, **`drop_duplicates()`**: Find/remove duplicates.
+- **`memory_usage()`**: Memory use.
+
+---
+
+## 🔁 Iteration
+
+- **`iterrows()`**: Iterate row-wise.
+- **`itertuples()`**: Iterate as named tuples.
+- **`items()`**: Iterate over columns.
+
+---
+
+## 📊 Statistics and Aggregation
+
+- **`sum()`**, **`mean()`**, **`median()`**, **`std()`**, **`var()`**: Basic statistics.
+- **`min()`**, **`max()`**, **`mode()`**: Value summaries.
+- **`cumsum()`**, **`cumprod()`**: Cumulative operations.
+- **`corr()`**, **`cov()`**: Correlation and covariance.
+- **`abs()`**, **`round()`**: Absolute and rounding.
+
+---
+
+## 🧮 Transformation
+
+- **`apply(func)`**: Apply function to rows or columns.
+- **`map(func)`**: Element-wise operation (Series).
+- **`applymap(func)`**: Element-wise operation (DataFrame).
+- **`agg()`**: Aggregate with one or more operations.
+- **`transform(func)`**: Transform data group-wise or element-wise.
+
+---
+
+## 📊 Grouping & Window
+
+- **`groupby(keys)`**: Group data.
+- **`rolling(window)`**, **`expanding()`**, **`ewm()`**: Window functions.
+
+---
+
+## 🔄 Sorting & Ranking
+
+- **`sort_values(by)`**: Sort by column values.
+- **`sort_index()`**: Sort by index.
+- **`rank()`**: Compute ranks.
+
+---
+
+## 🔀 Merging & Joining
+
+- **`concat([df1, df2])`**: Concatenate along axis.
+- **`merge(df2, how='inner')`**: Merge like SQL.
+- **`join(df2)`**: Join using index or column.
+
+---
+
+## 🤷️ Type Conversion & Misc
+
+- **`astype(dtype)`**: Change column data type.
+- **`convert_dtypes()`**: Convert to best-fit dtypes.
+- **`interpolate()`**: Fill missing with interpolation.
+
+---
+
+## 📅 Time Series
+
+- **`resample()`**: Resample time-series data.
+- **`asfreq()`**: Change frequency.
+- **`to_period()`**, **`to_timestamp()`**: Convert time formats.
+
+---
+
+## Example Usage Snippets
+
+```python
+import pandas as pd
+
+# Read data
+df = pd.read_csv("data.csv")
+
+# Inspect
+print(df.info())
+
+# Filter
+filtered = df[df['Age'] > 25]
+
+# Group and summarize
+summary = df.groupby('Gender')['Salary'].mean()
+
+# Add new column
+df['Bonus'] = df['Salary'] * 0.1
+
+# Save to Excel
+df.to_excel("updated.xlsx", index=False)
+```
+
+Let me know if you want this in **PDF**, **HTML**, or **interactive notebook** format!
+
+================================numpy======================================================
+Method			Description								Example
+array			Creates a NumPy array.							np.array([1, 2, 3])
+arange			Returns evenly spaced values within a given interval.			np.arange(0, 10, 2)
+linspace		Returns evenly spaced numbers over a specified interval.		np.linspace(0, 1, 5)
+zeros			Creates an array filled with zeros.					np.zeros((2,3))
+ones			Creates an array filled with ones.					np.ones((2,3))
+eye			Returns identity matrix.						np.eye(3)
+random.rand		Generates random values in [0,1) with given shape.			np.random.rand(2,2)
+random.randn		Generates random values from normal distribution.			np.random.randn(2,2)
+reshape			Reshapes array without changing data.					np.array([1,2,3,4]).reshape(2,2)
+flatten			Converts a multi-D array into 1D.					np.array([[1,2],[3,4]]).flatten()
+
+
+===========================================matlotlib.pyplot as plt===========================================
+Here's a list of **Matplotlib** and **Seaborn** methods and functions with brief descriptions to help you understand and use them effectively:
+
+---
+
+### 🟦 **Matplotlib (mostly from `matplotlib.pyplot`)**
+
+| Function/Method         | Description |
+|-------------------------|-------------|
+| `plot()`                | Line plot. |
+| `scatter()`             | Scatter plot. |
+| `bar()`                 | Vertical bar chart. |
+| `barh()`                | Horizontal bar chart. |
+| `hist()`                | Histogram. |
+| `boxplot()`             | Box and whisker plot. |
+| `pie()`                 | Pie chart. |
+| `xlabel()`              | Label for x-axis. |
+| `ylabel()`              | Label for y-axis. |
+| `title()`               | Adds a title to the plot. |
+| `legend()`              | Displays a legend. |
+| `grid()`                | Adds a grid to the plot. |
+| `xlim()` / `ylim()`     | Set limits for x/y axis. |
+| `xticks()` / `yticks()` | Set ticks on x/y axis. |
+| `figure()`              | Creates a new figure. |
+| `subplot()`             | Creates subplots (grid layout). |
+| `subplots()`            | Returns a figure and axes for multiple plots. |
+| `show()`                | Displays the plot. |
+| `savefig()`             | Saves the plot as an image file. |
+| `errorbar()`            | Plots data with error bars. |
+| `fill_between()`        | Fills between two curves. |
+| `annotate()`            | Adds annotation (text) to a plot. |
+| `tight_layout()`        | Automatically adjusts subplot params for neat layout. |
+| `style.use()`           | Applies pre-defined plot styles (like ‘ggplot’). |
+| `colorbar()`            | Adds a colorbar to the plot. |
+| `clim()`                | Sets the color limits of the current image. |
+
+---
+
+### 🟩 **Seaborn (usually imported as `sns`)**
+
+| Function/Method         | Description |
+|-------------------------|-------------|
+| `set()`                 | Sets aesthetic parameters. |
+| `load_dataset()`        | Loads sample datasets. |
+| `scatterplot()`         | Scatter plot with better styling. |
+| `lineplot()`            | Line plot with error bars. |
+| `barplot()`             | Shows mean and CI using bars. |
+| `countplot()`           | Shows count of observations. |
+| `boxplot()`             | Box and whisker plot. |
+| `violinplot()`          | Combines boxplot and KDE. |
+| `stripplot()`           | Scatter plot for categorical data. |
+| `swarmplot()`           | Like `stripplot` but avoids overlap. |
+| `distplot()` *(deprecated)* | Distribution plot (histogram + KDE). |
+| `displot()`             | Newer version of `distplot` with better options. |
+| `kdeplot()`             | Kernel Density Estimate plot. |
+| `histplot()`            | Histogram plot. |
+| `jointplot()`           | Plot showing bivariate relationships. |
+| `pairplot()`            | Plot pairwise relationships in a dataset. |
+| `heatmap()`             | 2D heatmap with color-coded values. |
+| `clustermap()`          | Heatmap with hierarchical clustering. |
+| `lmplot()`              | Linear model plot with regression line. |
+| `regplot()`             | Fits and plots a regression model. |
+| `residplot()`           | Residuals plot for regression. |
+| `FacetGrid()`           | Multi-plot grid for categorical plotting. |
+| `catplot()`             | Combines several categorical plots. |
+| `theme()` *(set_theme)* | Set overall style/theme. |
+
+---
+
+Would you like this information in an Excel sheet or downloadable PDF too?
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+## 🔄 **1. Convert Number to Binary (Bits)**
+
+### ✅ **Basic binary (no padding)**:
+```python
+n = 5
+binary = bin(n)[2:]  # Remove '0b' prefix
+print(binary)  # Output: '101'
+```
+### ✅ **32-bit representation**:
+```python
+n = 5
+binary_32 = format(n, '032b')
+print(binary_32)  # Output: '00000000000000000000000000000101'
+```
+### ✅ **64-bit representation**:
+```python
+n = 5
+binary_64 = format(n, '064b')
+print(binary_64)  # Output: '0000000000000000000000000000000000000000000000000000000000000101'
+```
+## 🔄 **2. Convert Binary (String of Bits) to Number**
+
+```python
+binary_str = "00000000000000000000000000000101"
+number = int(binary_str, 2)
+print(number)  # Output: 5
+```
+
+## 🎯 Summary:
+
+| Task | Code | Example Output |
+|------|------|----------------|
+| Number → binary string | `bin(n)[2:]` | `'101'` |
+| Number → 32-bit | `format(n, '032b')` | `'000...0101'` |
+| Number → 64-bit | `format(n, '064b')` | `'000...0101'` |
+| Binary string → Number | `int(binary_str, 2)` | `5` |
+
+---
+--------------------------------------------------------------------------------------------------------------------------------------------------
+That's a great goal! Let's build a strong foundation step-by-step. Here's how we'll start learning matrix operations in Python **without using NumPy**, covering basics to advanced logic.
+
+---
+
+### 🧠 What is a Matrix?
+A matrix is just a list of lists in Python, where each inner list represents a row.
+
+```python
+matrix = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]
+```
+
+---
+
+### ✅ Basic Matrix Concepts
+
+#### 1. **Accessing Elements**
+```python
+print(matrix[0][0])  # Output: 1 (first row, first column)
+print(matrix[2][1])  # Output: 8 (third row, second column)
+```
+
+#### 2. **Iterating Through a Matrix**
+
+**Using Nested Loops:**
+```python
+for i in range(len(matrix)):
+    for j in range(len(matrix[i])):
+        print(matrix[i][j], end=" ")
+    print()
+```
+
+---
+
+### 🔁 Common Matrix Operations (Step-by-Step)
+
+#### 1. **Row-wise Sum**
+```python
+for row in matrix:
+    print(sum(row))
+```
+
+#### 2. **Column-wise Sum**
+```python
+n = len(matrix)
+m = len(matrix[0])
+
+for col in range(m):
+    col_sum = 0
+    for row in range(n):
+        col_sum += matrix[row][col]
+    print(col_sum)
+```
+
+#### 3. **Transpose of a Matrix**
+```python
+transpose = []
+for i in range(len(matrix[0])):
+    row = []
+    for j in range(len(matrix)):
+        row.append(matrix[j][i])
+    transpose.append(row)
+
+print(transpose)
+```
+
+---
+
+### 🔍 Intermediate Concepts
+
+#### 1. **Diagonal Elements**
+```python
+n = len(matrix)
+
+main_diagonal = [matrix[i][i] for i in range(n)]
+anti_diagonal = [matrix[i][n - 1 - i] for i in range(n)]
+
+print("Main:", main_diagonal)
+print("Anti:", anti_diagonal)
+```
+
+#### 2. **Matrix Flattening (convert to 1D list)**
+```python
+flattened = [element for row in matrix for element in row]
+print(flattened)
+```
+
+---
+
+### 💡 Tips for Logic Building
+
+1. **Draw the matrix** and trace indices on paper.
+2. **Think in loops**: outer loop (rows), inner loop (columns).
+3. Practice pattern questions (spirals, diagonals, borders).
+4. Use **debug prints** to see what values you get.
+5. Start small (2x2 or 3x3) and expand gradually.
+
+---
+
+Would you like to:
+- Start practicing some basic problems?
+- Get a notebook of mini tasks to build logic?
+- Or dive into intermediate/advanced patterns like spirals, rotations, etc.?
+
+Let me know how you want to proceed!
